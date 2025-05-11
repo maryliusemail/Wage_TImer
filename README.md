@@ -29,5 +29,13 @@ You can install these via [Homebrew](https://brew.sh/) on macOS:
 ```bash
 brew install sdl2 sdl2_ttf sdl2_image
 ```
+##🔧 Build & Run
+```bash
+g++ main.cpp -I/opt/homebrew/include/SDL2 -L/opt/homebrew/lib -lSDL2 -lSDL2_ttf -lSDL2_image -o wage_timer
+./wage_timer
+```
+### 📁 Make sure your working directory contains:
 
+- `main.cpp`
+- `pixel.ttf` (or any `.ttf` font you'd like to use)
 
