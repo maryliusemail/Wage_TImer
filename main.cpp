@@ -58,10 +58,28 @@ int main() {
         text_rect.x = (width - text_rect.w) / 2;
         text_rect.y = (height - text_rect.h) / 2;
 
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        // Light pink background
+        SDL_SetRenderDrawColor(renderer, 255, 192, 203, 255);
         SDL_RenderClear(renderer);
+
+        // Cute hearts (top-left)
+        SDL_SetRenderDrawColor(renderer, 255, 105, 180, 255); // hot pink
+        for (int i = 0; i < 5; ++i) {
+            SDL_Rect heart = {10 + i * 25, 10, 6, 6};
+            SDL_RenderFillRect(renderer, &heart);
+        }
+
+        // Yellow stars (bottom-right)
+        SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); // yellow
+        for (int i = 0; i < 5; ++i) {
+            SDL_Rect star = {width - 10 - i * 25, height - 20, 5, 5};
+            SDL_RenderFillRect(renderer, &star);
+        }
+
+        // Render wage prompt text
         SDL_RenderCopy(renderer, text_texture, NULL, &text_rect);
         SDL_RenderPresent(renderer);
+
 
         SDL_FreeSurface(text_surface);
         SDL_DestroyTexture(text_texture);
@@ -126,11 +144,29 @@ int main() {
             time_rect.y = 10;                        // top corner
         
             // Draw everything
-            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+            // --- Draw background (light pink)
+            SDL_SetRenderDrawColor(renderer, 255, 192, 203, 255); // light pink
             SDL_RenderClear(renderer);
+
+            // --- Draw small heart decorations (red dots)
+            SDL_SetRenderDrawColor(renderer, 255, 105, 180, 255); // hot pink hearts
+            for (int i = 0; i < 5; ++i) {
+                SDL_Rect heart = {10 + i * 25, 10, 6, 6};
+                SDL_RenderFillRect(renderer, &heart);
+            }
+
+            // --- Draw stars (yellow squares)
+            SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); // yellow stars
+            for (int i = 0; i < 5; ++i) {
+                SDL_Rect star = {width - 10 - i * 25, height - 20, 5, 5};
+                SDL_RenderFillRect(renderer, &star);
+            }
+
+            // --- Draw text
             SDL_RenderCopy(renderer, text_texture, NULL, &text_rect);   // wage timer
             SDL_RenderCopy(renderer, time_texture, NULL, &time_rect);   // real clock
             SDL_RenderPresent(renderer);
+
         
             // Free resources
             SDL_FreeSurface(text_surface);
