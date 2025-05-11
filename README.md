@@ -3,6 +3,8 @@
 # 💖 Wage Timer
 
 This is a cute and simple wage timer built using **SDL2**, **SDL_ttf**, and **SDL_image** in C++. It lets you track how much money you're earning in real time!
+
+
 ![ezgif com-video-to-gif-converter (3)](https://github.com/user-attachments/assets/79a25a24-fbef-4cf5-8d21-a3a70a6a0b10)
 
 
